@@ -14,7 +14,7 @@ showinSearchEngines: true
 serverName: itsFatlum SMP
 serverDescription: Fatlum's official Minecraft SMP server!
 serverIP: fatlum.aternos.me
-useBedrockForOnlineStatus: false
+useBedrockForOnlineStatus: true
 
 
 # Discord information
