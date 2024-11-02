@@ -3,7 +3,7 @@
 # Change "moonrise" to your repository name
 url: "https://itsFatlumSMP.github.io"
 baseurl: "/itsFatlumSMP.github.io"
-siteIcon: /media/itsFatlumSMPIcon.png
+siteIcon: https://cdn.discordapp.com/attachments/1302296484003184781/1302296579184525343/itsFatlumSMPIcon.png?ex=672799b3&is=67264833&hm=feae7a709a5534ebb7fad88647ecdb60bb0437d02e10493dcca7ea2c0480035f&
 siteYear: 2024
 siteFooterlink: /about
 showinSearchEngines: true
