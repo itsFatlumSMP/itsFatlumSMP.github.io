@@ -3,7 +3,7 @@
 # Change "moonrise" to your repository name
 url: "https://itsFatlumSMP.github.io"
 baseurl: "/itsFatlumSMP.github.io"
-siteIcon: /media/itsFatlumSMPIcon.jpg
+siteIcon: /media/itsFatlumSMPIcon.png
 siteYear: 2024
 siteFooterlink: /about
 showinSearchEngines: true
