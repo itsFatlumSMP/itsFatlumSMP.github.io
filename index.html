@@ -18,7 +18,7 @@
       color: #333;
     }
     .rounded-header {
-      background-color: #4CAF50; /* Green background */
+      background-color: #d56e4d; /* Updated header color */
       color: white; /* White text */
       padding: 10px 20px; /* Reduced padding */
       border-radius: 25px; /* Rounded corners */
@@ -83,7 +83,7 @@
       top: 60px;
       left: 0;
       width: 100%;
-      background-color: #4CAF50;
+      background-color: #d56e4d; /* Updated mobile nav background color */
       border-radius: 0 0 10px 10px;
       padding: 10px 0;
     }
@@ -112,8 +112,8 @@
       darkModeSwitch.textContent = '🌞';
 
       darkModeSwitch.addEventListener('click', () => {
-        body.classList.toggle('dark-mode');
-        darkModeSwitch.textContent = body.classList.contains('dark-mode') ? '🌞' : '🌚';
+        body.classList.toggle('light-mode');
+        darkModeSwitch.textContent = body.classList.contains('light-mode') ? '🌚' : '🌞';
       });
 
       hamburgerMenu.addEventListener('click', () => {
