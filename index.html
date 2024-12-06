@@ -7,14 +7,15 @@
   <style>
     body {
       font-family: 'Arial', sans-serif;
-      background-color: #f4f4f4;
+      background-color: #333; /* Default to dark mode */
+      color: #f4f4f4;
       margin: 0;
       padding: 0;
       transition: background-color 0.3s, color 0.3s;
     }
-    body.dark-mode {
-      background-color: #333;
-      color: #f4f4f4;
+    body.light-mode {
+      background-color: #f4f4f4;
+      color: #333;
     }
     .rounded-header {
       background-color: #4CAF50; /* Green background */
@@ -63,13 +64,60 @@
       cursor: pointer; /* Pointer cursor */
       font-size: 1.5em; /* Larger font size for emojis */
     }
+    .hamburger-menu {
+      display: none; /* Hide hamburger menu by default */
+      flex-direction: column;
+      cursor: pointer;
+    }
+    .hamburger-menu div {
+      width: 25px;
+      height: 3px;
+      background-color: white;
+      margin: 4px 0;
+      transition: 0.4s;
+    }
+    .nav-links-mobile {
+      display: none; /* Hide mobile nav links by default */
+      flex-direction: column;
+      position: absolute;
+      top: 60px;
+      left: 0;
+      width: 100%;
+      background-color: #4CAF50;
+      border-radius: 0 0 10px 10px;
+      padding: 10px 0;
+    }
+    .nav-links-mobile a {
+      padding: 10px;
+      text-align: center;
+    }
+    @media (max-width: 768px) {
+      .nav-links {
+        display: none; /* Hide desktop nav links on mobile */
+      }
+      .hamburger-menu {
+        display: flex; /* Show hamburger menu on mobile */
+      }
+    }
   </style>
   <script>
     document.addEventListener('DOMContentLoaded', () => {
       const darkModeSwitch = document.querySelector('.dark-mode-switch');
+      const hamburgerMenu = document.querySelector('.hamburger-menu');
+      const navLinksMobile = document.querySelector('.nav-links-mobile');
+      const body = document.body;
+
+      // Set default to dark mode
+      body.classList.add('dark-mode');
+      darkModeSwitch.textContent = '🌞';
+
       darkModeSwitch.addEventListener('click', () => {
-        document.body.classList.toggle('dark-mode');
-        darkModeSwitch.textContent = document.body.classList.contains('dark-mode') ? '🌞' : '🌚';
+        body.classList.toggle('dark-mode');
+        darkModeSwitch.textContent = body.classList.contains('dark-mode') ? '🌞' : '🌚';
+      });
+
+      hamburgerMenu.addEventListener('click', () => {
+        navLinksMobile.style.display = navLinksMobile.style.display === 'flex' ? 'none' : 'flex';
       });
     });
   </script>
@@ -87,8 +135,19 @@
       <a href="#discord">Discord</a>
     </div>
     <div class="dark-mode-switch">
-      🌚
+      🌞
     </div>
+    <div class="hamburger-menu">
+      <div></div>
+      <div></div>
+      <div></div>
+    </div>
+  </div>
+  <div class="nav-links-mobile">
+    <a href="#home">Home</a>
+    <a href="#about">About</a>
+    <a href="#members">Members</a>
+    <a href="#discord">Discord</a>
   </div>
 </body>
 </html>
