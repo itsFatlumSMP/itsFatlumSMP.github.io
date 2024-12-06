@@ -5,19 +5,33 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>itsFatlum SMP</title>
   <style>
+    body {
+      font-family: 'Arial', sans-serif;
+      background-color: #f4f4f4;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
     .rounded-header {
       background-color: #4CAF50; /* Green background */
       color: white; /* White text */
       text-align: center; /* Centered text */
-      padding: 10px; /* Reduced padding */
+      padding: 10px 20px; /* Reduced padding */
       border-radius: 25px; /* Rounded corners */
       width: 50%; /* Thinner width */
-      margin: 0 auto; /* Centered */
       position: relative; /* For positioning the nav links */
-      height: 60px; /* Set height */
       display: flex; /* Flexbox for layout */
       align-items: center; /* Center items vertically */
       justify-content: center; /* Center items horizontally */
+      cursor: pointer; /* Pointer cursor */
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+      transition: transform 0.3s ease-in-out; /* Smooth transition */
+    }
+    .rounded-header:hover {
+      transform: scale(1.05); /* Slightly enlarge on hover */
     }
     .header-content {
       display: flex; /* Flexbox for layout */
@@ -30,7 +44,7 @@
       margin-right: 10px; /* Space between image and text */
     }
     .nav-links {
-      display: flex; /* Display links in a row */
+      display: none; /* Hide navigation links */
       position: absolute; /* Position relative to the header */
       top: 100%; /* Below the header */
       left: 50%; /* Center horizontally */
@@ -39,36 +53,37 @@
       border-radius: 10px; /* Rounded corners */
       padding: 10px; /* Some padding */
       opacity: 0; /* Start hidden */
-      transition: opacity 0.6s ease-in-out, transform 0.6s ease-in-out; /* Animation */
+      transition: opacity 0.3s ease-in-out, transform 0.3s ease-in-out; /* Animation */
       pointer-events: none; /* Prevent interaction when hidden */
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow */
     }
-    .rounded-header:hover .nav-links,
-    .nav-links:hover {
-      display: flex; /* Show navigation links on hover */
+    .rounded-header.active .nav-links {
+      display: flex; /* Show navigation links on click */
       opacity: 1; /* Fade in */
       transform: translateX(-50%) translateY(10px); /* Slide down */
       pointer-events: auto; /* Allow interaction when visible */
-    }
-    .rounded-header:hover .nav-links {
-      animation: fadeOut 3s forwards; /* Start fade out animation after 3 seconds */
-    }
-    @keyframes fadeOut {
-      0% {
-        opacity: 1;
-        transform: translateX(-50%) translateY(10px);
-      }
-      100% {
-        opacity: 0;
-        transform: translateX(-50%) translateY(0);
-      }
     }
     .nav-links a {
       color: white; /* White text */
       text-decoration: none; /* Remove underline */
       margin: 0 10px; /* Space between links */
       display: block; /* Block display for better spacing */
+      padding: 5px 10px; /* Padding for links */
+      border-radius: 5px; /* Rounded corners for links */
+      transition: background-color 0.3s ease-in-out; /* Smooth transition */
+    }
+    .nav-links a:hover {
+      background-color: rgba(255, 255, 255, 0.2); /* Slightly darker on hover */
     }
   </style>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const header = document.querySelector('.rounded-header');
+      header.addEventListener('click', () => {
+        header.classList.toggle('active');
+      });
+    });
+  </script>
 </head>
 <body>
   <div class="rounded-header">
