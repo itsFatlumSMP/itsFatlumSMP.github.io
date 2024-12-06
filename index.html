@@ -10,23 +10,23 @@
       background-color: #f4f4f4;
       margin: 0;
       padding: 0;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      height: 100vh;
+      transition: background-color 0.3s, color 0.3s;
+    }
+    body.dark-mode {
+      background-color: #333;
+      color: #f4f4f4;
     }
     .rounded-header {
       background-color: #4CAF50; /* Green background */
       color: white; /* White text */
-      text-align: center; /* Centered text */
       padding: 10px 20px; /* Reduced padding */
       border-radius: 25px; /* Rounded corners */
-      width: 50%; /* Thinner width */
+      width: 80%; /* Longer width */
+      margin: 20px auto; /* Centered with margin at the top */
       position: relative; /* For positioning the nav links */
       display: flex; /* Flexbox for layout */
       align-items: center; /* Center items vertically */
-      justify-content: center; /* Center items horizontally */
-      cursor: pointer; /* Pointer cursor */
+      justify-content: space-between; /* Space between items */
       box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow */
       transition: transform 0.3s ease-in-out; /* Smooth transition */
     }
@@ -44,30 +44,12 @@
       margin-right: 10px; /* Space between image and text */
     }
     .nav-links {
-      display: none; /* Hide navigation links */
-      position: absolute; /* Position relative to the header */
-      top: 100%; /* Below the header */
-      left: 50%; /* Center horizontally */
-      transform: translateX(-50%); /* Center horizontally */
-      background-color: #4CAF50; /* Same background color */
-      border-radius: 10px; /* Rounded corners */
-      padding: 10px; /* Some padding */
-      opacity: 0; /* Start hidden */
-      transition: opacity 0.3s ease-in-out, transform 0.3s ease-in-out; /* Animation */
-      pointer-events: none; /* Prevent interaction when hidden */
-      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow */
-    }
-    .rounded-header.active .nav-links {
-      display: flex; /* Show navigation links on click */
-      opacity: 1; /* Fade in */
-      transform: translateX(-50%) translateY(10px); /* Slide down */
-      pointer-events: auto; /* Allow interaction when visible */
+      display: flex; /* Display links in a row */
+      gap: 15px; /* Space between links */
     }
     .nav-links a {
       color: white; /* White text */
       text-decoration: none; /* Remove underline */
-      margin: 0 10px; /* Space between links */
-      display: block; /* Block display for better spacing */
       padding: 5px 10px; /* Padding for links */
       border-radius: 5px; /* Rounded corners for links */
       transition: background-color 0.3s ease-in-out; /* Smooth transition */
@@ -75,12 +57,19 @@
     .nav-links a:hover {
       background-color: rgba(255, 255, 255, 0.2); /* Slightly darker on hover */
     }
+    .dark-mode-switch {
+      display: flex; /* Flexbox for layout */
+      align-items: center; /* Center items vertically */
+      cursor: pointer; /* Pointer cursor */
+      font-size: 1.5em; /* Larger font size for emojis */
+    }
   </style>
   <script>
     document.addEventListener('DOMContentLoaded', () => {
-      const header = document.querySelector('.rounded-header');
-      header.addEventListener('click', () => {
-        header.classList.toggle('active');
+      const darkModeSwitch = document.querySelector('.dark-mode-switch');
+      darkModeSwitch.addEventListener('click', () => {
+        document.body.classList.toggle('dark-mode');
+        darkModeSwitch.textContent = document.body.classList.contains('dark-mode') ? '🌞' : '🌚';
       });
     });
   </script>
@@ -96,6 +85,9 @@
       <a href="#about">About</a>
       <a href="#members">Members</a>
       <a href="#discord">Discord</a>
+    </div>
+    <div class="dark-mode-switch">
+      🌚
     </div>
   </div>
 </body>
